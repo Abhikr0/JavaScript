@@ -61,8 +61,8 @@ app.get("/view/:filename", function(req,res,next){
     fs.readFile(`./files/${req.params.filename}`,"utf-8",function(err,data){
         if(err) return res.send(err);
 
-        const newData = data.split(/\r?\n/);
-        res.render("view",{data:newData,filename:req.params.filename})
+        res.render("view",{data,filename:req.params.filename})
+        
     })
 // res.send("this is the main page");
 })
